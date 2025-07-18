@@ -1,0 +1,36 @@
+.comment-section {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+  
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+  
+    .comment-list {
+      max-height: 400px;         // 👈 Set a max height
+      overflow-y: auto;          // 👈 Enable vertical scrolling
+      padding-right: 0.5rem;
+  
+      // Optional scroll styling
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+  
+      &::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 3px;
+      }
+  
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: #999;
+      }
+    }
+  }
+  

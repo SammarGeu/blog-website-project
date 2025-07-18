@@ -1,0 +1,96 @@
+.comment-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease-in-out;
+  margin-bottom: 1rem;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  &.ms-4 {
+    border-left: 4px solid #3f8cff;
+    background-color: #f1f7ff;
+    margin-left: 1.5rem;
+  }
+
+  h6 {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  small {
+    font-size: 0.75rem;
+    color: #888;
+  }
+
+  p {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #333;
+  }
+
+  .comment-actions {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+
+    .btn-link {
+      font-size: 0.85rem;
+      color: #007bff;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &.text-danger {
+        color: #dc3545;
+      }
+
+      &.text-primary {
+        color: #007bff;
+      }
+    }
+  }
+
+  textarea.form-control {
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    resize: vertical;
+    transition: border-color 0.2s;
+
+    &:focus {
+      border-color: #80bdff;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+  }
+
+  .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  // New additions
+  .reply-form-wrapper {
+    padding: 1rem;
+    margin-top: 1rem;
+    background: #f9f9f9;
+    border-left: 4px solid #dee2e6;
+    border-radius: 6px;
+  }
+
+  .replies-wrapper {
+    margin-top: 1rem;
+    padding-left: 0.5rem;
+    border-left: 2px dashed #d1d1d1;
+  }
+}

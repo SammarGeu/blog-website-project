@@ -1,0 +1,40 @@
+<div class="comment-card mt-3" [class.ms-4]="comment.parentId">
+  <h6 class="fw-bold mb-1">{{ comment.username }}</h6>
+
+  <small class="text-muted">
+    {{ comment.createdAt | date: 'dd MMM yyyy, h:mm a' }}
+  </small>
+
+  <div *ngIf="!isEditing; else editForm">
+    <p class="mt-2">{{ comment.content }}</p>
+    <div class="comment-actions mt-2">
+      <button class="btn btn-sm btn-link p-0 me-2" (click)="toggleReplyForm()">Reply</button>
+      <button class="btn btn-sm btn-link text-primary p-0 me-2" (click)="startEdit()">Edit</button>
+      <button class="btn btn-sm btn-link text-danger p-0" (click)="deleteComment()">Delete</button>
+    </div>
+  </div>
+
+  <ng-template #editForm>
+    <textarea [(ngModel)]="editedContent" rows="2" class="form-control mb-2"></textarea>
+    <button class="btn btn-sm btn-success me-2" (click)="saveEdit()">Save</button>
+    <button class="btn btn-sm btn-secondary" (click)="cancelEdit()">Cancel</button>
+  </ng-template>
+
+  <!-- Reply Form Block -->
+  <div class="reply-form-wrapper mt-3" *ngIf="showReplyForm">
+    <app-comment-form
+      [postID]="comment.postID"
+      [parentId]="comment.id"
+      (commentAdded)="onReplyAdded()"
+    ></app-comment-form>
+  </div>
+
+  <!-- Replies List -->
+  <div class="replies-wrapper mt-3" *ngIf="replies$ | async as replies">
+    <app-comment-item
+      *ngFor="let reply of replies"
+      [comment]="reply"
+      (commentDeleted)="onReplyDeleted()"
+    ></app-comment-item>
+  </div>
+</div>

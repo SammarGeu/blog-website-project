@@ -1,0 +1,19 @@
+<div class="comment-section">
+  <h5 class="section-title">Comments</h5>
+
+  <div class="comment-list">
+    <ng-container *ngIf="comments$ | async as comments">
+      <div *ngIf="comments.length > 0; else noComments">
+        <app-comment-item
+          *ngFor="let comment of comments"
+          [comment]="comment"
+          (commentDeleted)="refreshComments()"
+        ></app-comment-item>
+      </div>
+    </ng-container>
+
+    <ng-template #noComments>
+      <p class="text-muted mt-3">No comments yet. Be the first to comment!</p>
+    </ng-template>
+  </div>
+</div>
